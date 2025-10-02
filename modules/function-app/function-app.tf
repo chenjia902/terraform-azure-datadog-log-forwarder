@@ -129,7 +129,8 @@ locals {
 resource "null_resource" "function_app_publish" {
   depends_on = [local.publish_code_command, azurerm_role_assignment.role_assignment_storage, azurerm_role_assignment.role_assignment_event_hub]
   triggers = {
-    input_json                  = filemd5(data.archive_file.functions_zip.output_path)
+    # input_json                  = filemd5(data.archive_file.functions_zip.output_path)
+    publish_has                 = data.archive_file.functions_zip.output_base64sha256
     publish_code_command        = local.publish_code_command
     allow_public_access_command = local.allow_public_access_command
     deny_public_access_command  = local.deny_public_access_command
