@@ -21,7 +21,7 @@ resource "azurerm_windows_function_app" "function_app" {
     "WEBSITE_RUN_FROM_PACKAGE"                    = "1",
     "FUNCTIONS_WORKER_RUNTIME"                    = "node",
     "AzureWebJobsDisableHomepage"                 = "true",
-    "WEBSITE_NODE_DEFAULT_VERSION"                = "~18",
+    "WEBSITE_NODE_DEFAULT_VERSION"                = "~20",
     "EventHubConnection__credential"              = "managedidentity",
     "EventHubConnection__fullyQualifiedNamespace" = format("%s.servicebus.windows.net", var.event_hub_namespace_name),
     "DD_API_KEY"                                  = var.datadog_api_key,
